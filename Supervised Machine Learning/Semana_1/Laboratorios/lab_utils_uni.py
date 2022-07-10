@@ -317,7 +317,7 @@ def plt_divergence(p_hist, J_hist, x_train,y_train):
     #===============
 
     tmp_b,tmp_w = np.meshgrid(np.arange(-35000, 35000, 500),np.arange(-70000, 70000, 500))
-    #z=np.zeros_like(tmp_b)
+    # z=np.zeros_like(tmp_b)
     z = np.zeros(tmp_b.shape)
     for i in range(tmp_w.shape[0]):
         for j in range(tmp_w.shape[1]):
