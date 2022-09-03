@@ -1,0 +1,842 @@
+WEBVTT
+
+1
+00:00:00.340 --> 00:00:02.503
+Cuando se entrena el algoritmo de aprendizaje,
+
+2
+00:00:02.503 --> 00:00:06.063
+la mejor manera de desplegarlo es normalmente
+no es simplemente encenderlo y esperar
+
+3
+00:00:06.063 --> 00:00:09.129
+lo mejor porque, bueno,
+¿qué pasa si algo va mal?
+
+4
+00:00:09.129 --> 00:00:14.006
+Al desplegar los sistemas hay una serie de
+casos de uso comunes o tipos de casos de uso como
+
+5
+00:00:14.006 --> 00:00:18.675
+así como diferentes patrones para
+cómo desplegar dependiendo de su caso de uso.
+
+6
+00:00:18.675 --> 00:00:21.640
+Vamos a repasar esto en este vídeo.
+
+7
+00:00:21.640 --> 00:00:26.216
+En el último vídeo, hice alusión a algunas
+de las diferencias entre un primer
+
+8
+00:00:26.216 --> 00:00:30.040
+despliegue frente a un mantenimiento y
+mantenimiento y actualización.
+
+9
+00:00:30.040 --> 00:00:32.619
+Vamos a profundizar en esto con
+un poco más de detalle.
+
+10
+00:00:32.619 --> 00:00:37.223
+Un tipo de despliegue es si usted
+está ofreciendo un nuevo producto o
+
+11
+00:00:37.223 --> 00:00:41.104
+capacidad que no habías
+ofrecido anteriormente.
+
+12
+00:00:41.104 --> 00:00:45.913
+Por ejemplo, si ofreces un servicio de
+de reconocimiento de voz que no ha
+
+13
+00:00:45.913 --> 00:00:50.438
+ofrecido antes, en este caso, un patrón de diseño
+patrón de diseño es poner en marcha un pequeño
+
+14
+00:00:50.438 --> 00:00:53.740
+cantidad de tráfico y
+luego aumentar gradualmente.
+
+15
+00:00:53.740 --> 00:00:58.664
+Un segundo caso de uso común es si
+hay algo que ya está siendo
+
+16
+00:00:58.664 --> 00:01:03.091
+hecho por una persona, pero ahora nos gustaría
+utilizar un algoritmo de aprendizaje para
+
+17
+00:01:03.091 --> 00:01:05.230
+automatizar o ayudar en esa tarea.
+
+18
+00:01:05.230 --> 00:01:10.491
+Por ejemplo, si hay personas en la
+fábrica inspeccionando los arañazos de los smartphones,
+
+19
+00:01:10.491 --> 00:01:14.713
+pero ahora te gustaría utilizar un algoritmo de aprendizaje
+algoritmo de aprendizaje para ayudar o
+
+20
+00:01:14.713 --> 00:01:16.540
+automatizar esa tarea.
+
+21
+00:01:16.540 --> 00:01:21.244
+El hecho de que la gente hiciera antes
+esto te da unas cuantas opciones más para
+
+22
+00:01:21.244 --> 00:01:22.260
+cómo se despliega.
+
+23
+00:01:22.260 --> 00:01:27.140
+Y ves que el despliegue en modo sombra
+se aprovecha de esto.
+
+24
+00:01:27.140 --> 00:01:32.275
+Y finalmente, un tercer caso de despliegue común
+caso es si usted ya ha estado haciendo
+
+25
+00:01:32.275 --> 00:01:37.094
+esta tarea con una implementación anterior
+de un sistema de aprendizaje automático,
+
+26
+00:01:37.094 --> 00:01:41.840
+pero ahora quieres reemplazarlo
+por una aún mejor.
+
+27
+00:01:41.840 --> 00:01:47.064
+En estos casos
+dos temas recurrentes que se ven son que
+
+28
+00:01:47.064 --> 00:01:51.960
+a menudo quiere un gradual
+gradual con la supervisión.
+
+29
+00:01:51.960 --> 00:01:56.675
+En otras palabras, en lugar de enviar toneladas
+de tráfico a un sitio que tal vez no esté totalmente probado
+
+30
+00:01:56.675 --> 00:02:00.890
+algoritmo de aprendizaje, usted puede enviar
+sólo una pequeña cantidad de tráfico y
+
+31
+00:02:00.890 --> 00:02:04.770
+y luego aumentar el porcentaje o la cantidad de tráfico.
+el porcentaje o la cantidad de tráfico.
+
+32
+00:02:04.770 --> 00:02:08.178
+Y la segunda idea que se ve
+algunas veces es el rollback.
+
+33
+00:02:08.178 --> 00:02:12.834
+Lo que significa que si por alguna razón el
+algoritmo no está funcionando, es bueno que
+
+34
+00:02:12.834 --> 00:02:17.364
+puede volver al sistema anterior
+si es que había un sistema anterior.
+
+35
+00:02:17.364 --> 00:02:22.346
+Empecemos con un ejemplo de inspección
+inspección visual en el que tal vez se haya
+
+36
+00:02:22.346 --> 00:02:27.270
+tenido inspectores humanos que inspeccionan
+los teléfonos inteligentes para los defectos de los arañazos.
+
+37
+00:02:27.270 --> 00:02:33.164
+Y ahora le gustaría automatizar parte
+de este trabajo con un algoritmo de aprendizaje.
+
+38
+00:02:33.164 --> 00:02:36.943
+Cuando tienes personas
+haciendo inicialmente una tarea,
+
+39
+00:02:36.943 --> 00:02:42.530
+un patrón de despliegue común es
+utilizar el modo de despliegue en la sombra.
+
+40
+00:02:42.530 --> 00:02:47.644
+Y lo que eso significa es que empezarás
+teniendo un algoritmo de aprendizaje automático
+
+41
+00:02:47.644 --> 00:02:52.560
+sombra del inspector humano y
+corriendo en paralelo con el inspector humano.
+
+42
+00:02:52.560 --> 00:02:57.008
+Durante esta fase inicial, la salida de los
+algoritmos de aprendizaje no se utiliza para
+
+43
+00:02:57.008 --> 00:02:58.790
+ninguna decisión en la fábrica.
+
+44
+00:02:58.790 --> 00:03:04.140
+Así que lo que el algoritmo de aprendizaje dice, vamos a
+vamos a seguir el criterio humano por ahora.
+
+45
+00:03:04.140 --> 00:03:08.140
+Así que digamos que para este smartphone
+el humano dice que está bien, no tiene ningún defecto.
+
+46
+00:03:08.140 --> 00:03:09.810
+El algoritmo de aprendizaje dice que está bien.
+
+47
+00:03:09.810 --> 00:03:14.728
+Tal vez para este ejemplo de un gran tramo
+por el centro, la persona dice que no es
+
+48
+00:03:14.728 --> 00:03:17.159
+está bien y el algoritmo de aprendizaje está de acuerdo.
+
+49
+00:03:17.159 --> 00:03:21.692
+Y tal vez para este ejemplo con un menor
+estiramiento, tal vez la persona diga que esto no es
+
+50
+00:03:21.692 --> 00:03:26.440
+bien, pero el algoritmo de aprendizaje hace un
+error y en realidad piensa que esto está bien.
+
+51
+00:03:26.440 --> 00:03:31.256
+El propósito de un despliegue en modo sombra
+es que te permite reunir datos de cómo
+
+52
+00:03:31.256 --> 00:03:36.463
+el algoritmo de aprendizaje está funcionando y
+cómo se compara con el juicio humano.
+
+53
+00:03:36.463 --> 00:03:41.128
+Y por algo la salida puede
+verificar si el algoritmo de aprendizaje
+
+54
+00:03:41.128 --> 00:03:45.228
+predicciones son precisas y
+por lo tanto usar eso para decidir si
+
+55
+00:03:45.228 --> 00:03:50.840
+no permitir que el algoritmo de aprendizaje
+tomar algunas decisiones reales en el futuro.
+
+56
+00:03:50.840 --> 00:03:55.884
+Así que cuando ya tienes algún sistema que
+está tomando buenas decisiones y ese sistema
+
+57
+00:03:55.884 --> 00:04:01.013
+pueden ser inspectores humanos o incluso una
+implementación de un algoritmo de aprendizaje.
+
+58
+00:04:01.013 --> 00:04:04.951
+El uso de un despliegue en modo sombra puede
+ser una forma muy efectiva de dejar que
+
+59
+00:04:04.951 --> 00:04:07.478
+verificar el rendimiento de un sistema de aprendizaje
+
+60
+00:04:07.478 --> 00:04:11.440
+algoritmo antes de dejar que
+tomar decisiones reales.
+
+61
+00:04:11.440 --> 00:04:16.560
+Cuando estés preparado para dejar que un algoritmo
+algoritmo de aprendizaje empiece a tomar decisiones reales,
+
+62
+00:04:16.560 --> 00:04:20.940
+un patrón de despliegue común es
+utilizar un despliegue canario.
+
+63
+00:04:20.940 --> 00:04:25.275
+Así que hay un teléfono, el algoritmo dice que está
+bien, lo rechaza, dice que está bien,
+
+64
+00:04:25.275 --> 00:04:27.340
+rechaza eso, rechaza eso.
+
+65
+00:04:27.340 --> 00:04:32.278
+Y en un despliegue de canarios, se extendería
+a una pequeña fracción, tal vez el 5%, tal vez
+
+66
+00:04:32.278 --> 00:04:37.091
+incluso menos de tráfico inicialmente y empezar
+a dejar que el algoritmo tome decisiones reales.
+
+67
+00:04:37.091 --> 00:04:40.901
+Pero al ejecutar esto sólo en
+un pequeño porcentaje del tráfico,
+
+68
+00:04:40.901 --> 00:04:45.079
+con suerte, si el algoritmo hace
+algún error, sólo afectará a
+
+69
+00:04:45.079 --> 00:04:47.149
+una pequeña fracción del tráfico.
+
+70
+00:04:47.149 --> 00:04:51.518
+Y esto te da más de
+una oportunidad de monitorizar el sistema y
+
+71
+00:04:51.518 --> 00:04:55.491
+aumentar el porcentaje de tráfico
+que recibe sólo gradualmente y
+
+72
+00:04:55.491 --> 00:04:59.940
+sólo cuando se tiene mayor
+confianza en este rendimiento.
+
+73
+00:04:59.940 --> 00:05:04.420
+La frase despliegue canario es
+una referencia al modismo inglés o
+
+74
+00:05:04.420 --> 00:05:09.220
+la frase inglesa canary in a coal mine,
+que se refiere a cómo los mineros del carbón
+
+75
+00:05:09.220 --> 00:05:13.040
+solían usar canarios para
+detectar si hay una fuga de gas.
+
+76
+00:05:13.040 --> 00:05:17.584
+Pero con el canario el despliegue,
+esperamos que esto te permita detectar problemas
+
+77
+00:05:17.584 --> 00:05:21.915
+antes de que se produzcan consecuencias demasiado
+grandes consecuencias para una fábrica o
+
+78
+00:05:21.915 --> 00:05:26.035
+otro contexto en el que estás
+desplegar tu algoritmo de aprendizaje.
+
+79
+00:05:26.035 --> 00:05:31.640
+Otro patrón de despliegue que se
+a veces se utiliza es un despliegue azul-verde.
+
+80
+00:05:31.640 --> 00:05:33.340
+Permítanme explicarlo con la imagen.
+
+81
+00:05:33.340 --> 00:05:36.353
+Digamos que tienes un sistema
+un software de cámara para
+
+82
+00:05:36.353 --> 00:05:39.560
+recoger las fotos del teléfono en tu fábrica.
+
+83
+00:05:39.560 --> 00:05:46.035
+Estas imágenes del teléfono se envían a una pieza
+de software que toma estas imágenes y
+
+84
+00:05:46.035 --> 00:05:50.310
+las envía a algún
+sistema de inspección visual.
+
+85
+00:05:50.310 --> 00:05:53.387
+En la terminología de
+los despliegues azul y verde,
+
+86
+00:05:53.387 --> 00:05:58.412
+la versión antigua de su software se llama
+la versión azul y la nueva versión,
+
+87
+00:05:58.412 --> 00:06:03.540
+el algoritmo de aprendizaje que acaba de
+implementado se llama la versión verde.
+
+88
+00:06:03.540 --> 00:06:10.116
+En un despliegue azul-verde, lo que se hace es
+hacer que el router envíe imágenes al antiguo o
+
+89
+00:06:10.116 --> 00:06:13.999
+la versión azul y
+hacer que se tomen decisiones.
+
+90
+00:06:13.999 --> 00:06:17.818
+Y luego, cuando quieras
+cambiar a la nueva versión,
+
+91
+00:06:17.818 --> 00:06:22.695
+lo que se haría es que el router
+deje de enviar imágenes al antiguo y
+
+92
+00:06:22.695 --> 00:06:25.940
+de repente cambiar a la nueva versión.
+
+93
+00:06:25.940 --> 00:06:30.617
+Así que la forma en que el despliegue verde azul
+se implementa es que usted tendría un viejo
+
+94
+00:06:30.617 --> 00:06:34.410
+servicio de predicción puede ser
+corriendo en algún tipo de servicio.
+
+95
+00:06:34.410 --> 00:06:38.440
+A continuación, se pondrá en marcha
+un nuevo servicio de predicción,
+
+96
+00:06:38.440 --> 00:06:43.378
+la versión verde, y
+tendrás el router de repente
+
+97
+00:06:43.378 --> 00:06:48.041
+cambiar el tráfico de
+la antigua a la nueva.
+
+98
+00:06:48.041 --> 00:06:52.678
+La ventaja de un despliegue azul-verde
+es que hay una manera fácil de
+
+99
+00:06:52.678 --> 00:06:53.944
+activar el rollback.
+
+100
+00:06:53.944 --> 00:06:58.551
+Si algo va mal, puedes simplemente
+rápidamente hacer que el router regrese
+
+101
+00:06:58.551 --> 00:07:03.381
+reconfigurar su router para enviar el tráfico
+a la versión antigua o a la azul,
+
+102
+00:07:03.381 --> 00:07:08.238
+asumiendo que mantuviste tu versión azul
+del servicio de predicción en funcionamiento.
+
+103
+00:07:08.238 --> 00:07:11.341
+En una implementación típica
+de un despliegue azul verde,
+
+104
+00:07:11.341 --> 00:07:15.370
+la gente piensa en conmutar
+el tráfico al 100% al mismo tiempo.
+
+105
+00:07:15.370 --> 00:07:20.032
+Pero, por supuesto, también puedes utilizar una versión más
+gradual en la que se envían lentamente
+
+106
+00:07:20.032 --> 00:07:21.040
+el tráfico.
+
+107
+00:07:21.040 --> 00:07:25.136
+Como puedes imaginar, tanto si utilizas el modo
+modo sombra, modo canario, azul verde, o
+
+108
+00:07:25.136 --> 00:07:29.640
+algunos de los patrones de despliegue, bastante
+gran cantidad de software es necesario para ejecutar esto.
+
+109
+00:07:29.640 --> 00:07:34.027
+Las herramientas MLOps pueden ayudar a implementar
+estos patrones de despliegue o
+
+110
+00:07:34.027 --> 00:07:36.020
+puedes implementarlo tú mismo.
+
+111
+00:07:36.020 --> 00:07:39.389
+Uno de los más útiles
+marcos que he encontrado para
+
+112
+00:07:39.389 --> 00:07:44.729
+pensar en cómo desplegar un sistema es
+pensar en el despliegue no como un 0,
+
+113
+00:07:44.729 --> 00:07:49.164
+1 es desplegar o no desplegar,
+sino diseñar un sistema
+
+114
+00:07:49.164 --> 00:07:53.840
+pensando en cuál es
+el grado apropiado de automatización.
+
+115
+00:07:53.840 --> 00:07:57.026
+Por ejemplo
+en la inspección visual de los teléfonos inteligentes,
+
+116
+00:07:57.026 --> 00:08:01.505
+un extremo sería si no hay
+automatización, por lo que el sistema sólo humano.
+
+117
+00:08:01.505 --> 00:08:06.100
+Un modo ligeramente automatizado sería si
+su sistema está ejecutando un modo de sombra.
+
+118
+00:08:06.100 --> 00:08:08.756
+Así que sus algoritmos de aprendizaje
+están poniendo predicciones, pero
+
+119
+00:08:08.756 --> 00:08:10.580
+no se utiliza realmente en la fábrica.
+
+120
+00:08:10.580 --> 00:08:12.540
+Así que eso sería el modo sombra.
+
+121
+00:08:12.540 --> 00:08:17.160
+Un grado ligeramente mayor de automatización
+sería la asistencia de la IA en la que
+
+122
+00:08:17.160 --> 00:08:19.932
+dada una imagen como esta de un smartphone,
+
+123
+00:08:19.932 --> 00:08:23.172
+puede hacer que un inspector
+inspector tome la decisión.
+
+124
+00:08:23.172 --> 00:08:27.588
+Pero tal vez un sistema de IA puede afectar
+la interfaz de usuario para resaltar
+
+125
+00:08:27.588 --> 00:08:31.923
+las regiones donde hay un rasguño
+para ayudar a dibujar la persona
+
+126
+00:08:31.923 --> 00:08:35.890
+atención a donde puede ser
+más útil para ellos mirar.
+
+127
+00:08:35.890 --> 00:08:40.241
+El diseño de la interfaz de usuario o UI
+es fundamental para la asistencia humana.
+
+128
+00:08:40.241 --> 00:08:44.559
+Pero esto podría ser una forma de conseguir
+un grado ligeramente mayor de automatización
+
+129
+00:08:44.559 --> 00:08:47.303
+mientras se mantiene al humano en el bucle.
+
+130
+00:08:47.303 --> 00:08:51.432
+Y un grado aún mayor de automatización
+tal vez la automatización parcial, donde dado
+
+131
+00:08:51.432 --> 00:08:56.210
+un smartphone, si el algoritmo de aprendizaje está
+seguro de que está bien, entonces esa es su decisión.
+
+132
+00:08:56.210 --> 00:09:00.640
+Está seguro de que es defectuoso,
+entonces vamos a la decisión del algoritmo.
+
+133
+00:09:00.640 --> 00:09:04.913
+Pero si el algoritmo de aprendizaje no está seguro,
+en otras palabras,
+
+134
+00:09:04.913 --> 00:09:09.615
+si la predicción del algoritmo de aprendizaje
+no es demasiado segura, 0 o
+
+135
+00:09:09.615 --> 00:09:12.965
+1, tal vez sólo entonces
+enviamos esto a un humano.
+
+136
+00:09:12.965 --> 00:09:15.591
+Así que esto sería una automatización parcial.
+
+137
+00:09:15.591 --> 00:09:18.425
+Donde si el algoritmo de aprendizaje
+está seguro de su predicción,
+
+138
+00:09:18.425 --> 00:09:19.780
+vamos el algoritmo de aprendizaje.
+
+139
+00:09:19.780 --> 00:09:23.910
+Pero para el pequeño subconjunto de imágenes
+de imágenes donde el algoritmo es
+
+140
+00:09:23.910 --> 00:09:27.495
+no estamos seguros de enviarla a
+a un humano para que lo juzgue.
+
+141
+00:09:27.495 --> 00:09:32.328
+Y el juicio humano también puede ser muy
+valiosos datos para retroalimentar a más
+
+142
+00:09:32.328 --> 00:09:34.840
+entrenar y mejorar el algoritmo.
+
+143
+00:09:34.840 --> 00:09:39.880
+Encuentro que esta automatización parcial es
+a veces un punto de diseño muy bueno para
+
+144
+00:09:39.880 --> 00:09:45.238
+aplicaciones donde el rendimiento de los algoritmos de aprendizaje
+de aprendizaje no son lo suficientemente buenos para
+
+145
+00:09:45.238 --> 00:09:46.520
+la automatización completa.
+
+146
+00:09:46.520 --> 00:09:51.385
+Y luego, por supuesto, más allá de la automatización
+automatización, hay una automatización total
+
+147
+00:09:51.385 --> 00:09:56.540
+donde podríamos tener el aprendizaje
+algoritmo de aprendizaje tome todas las decisiones.
+
+148
+00:09:56.540 --> 00:10:02.327
+Así que hay un espectro de usar
+sólo decisiones humanas a la izquierda,
+
+149
+00:10:02.327 --> 00:10:08.240
+todo el camino a utilizar sólo la IA
+de la IA a la derecha.
+
+150
+00:10:08.240 --> 00:10:13.464
+Y muchas aplicaciones de despliegue
+comenzarán por la izquierda y
+
+151
+00:10:13.464 --> 00:10:15.990
+gradualmente hacia la derecha.
+
+152
+00:10:15.990 --> 00:10:19.840
+Y no es necesario llegar hasta
+el camino hacia la automatización total.
+
+153
+00:10:19.840 --> 00:10:23.918
+Se puede optar por dejar de utilizar la IA
+o la automatización parcial o
+
+154
+00:10:23.918 --> 00:10:27.081
+puedes elegir pasar a la
+la automatización total, dependiendo de
+
+155
+00:10:27.081 --> 00:10:30.967
+el rendimiento de tu sistema y
+las necesidades de la aplicación.
+
+156
+00:10:30.967 --> 00:10:35.432
+En este espectro, tanto la asistencia de la IA como
+
+157
+00:10:35.432 --> 00:10:43.840
+automatización parcial son ejemplos
+de despliegues humanos en el bucle.
+
+158
+00:10:43.840 --> 00:10:46.469
+Me parece que las
+aplicaciones de Internet
+
+159
+00:10:46.469 --> 00:10:50.950
+como, por ejemplo, si se ejecuta un motor de búsqueda en la web,
+escribir un sistema de reconocimiento de voz en línea.
+
+160
+00:10:50.950 --> 00:10:55.656
+Una gran cantidad de software de consumo de Internet
+tienen que utilizar la automatización completa
+
+161
+00:10:55.656 --> 00:11:00.585
+porque simplemente no es factible que alguien
+en el back end haciendo algo de trabajo cada
+
+162
+00:11:00.585 --> 00:11:04.540
+cada vez que alguien hace una búsqueda en la web o
+hace la búsqueda de productos.
+
+163
+00:11:04.540 --> 00:11:08.962
+Pero fuera del software de consumo de Internet,
+por ejemplo, inspeccionando cosas y
+
+164
+00:11:08.962 --> 00:11:09.700
+fábricas.
+
+165
+00:11:09.700 --> 00:11:14.603
+En realidad son muchas las aplicaciones en las que
+el mejor punto de diseño puede ser un humano
+
+166
+00:11:14.603 --> 00:11:19.340
+en los despliegues de bucle en lugar de
+que un despliegue de automatización completa.
+
+167
+00:11:19.340 --> 00:11:22.383
+En este vídeo
+has visto algunos patrones de despliegue,
+
+168
+00:11:22.383 --> 00:11:26.910
+como un despliegue en modo sombra,
+el despliegue canario, el despliegue azul-verde.
+
+169
+00:11:26.910 --> 00:11:30.765
+Y también has visto cómo puedes elegir
+el grado más apropiado de
+
+170
+00:11:30.765 --> 00:11:33.586
+automatización en función de su aplicación,
+
+171
+00:11:33.586 --> 00:11:38.040
+que podría ser un humano en el bucle
+de despliegue o una automatización completa.
+
+172
+00:11:38.040 --> 00:11:43.007
+A medida que avanzamos en estas ideas, me has oído mencionar
+mencionar algunas veces la importancia de
+
+173
+00:11:43.007 --> 00:11:47.270
+la monitorización para ayudar a detectar los problemas
+si los hay, para poder abordarlos.
+
+174
+00:11:47.270 --> 00:11:51.761
+Vamos a sumergirnos en los detalles de cómo
+monitorizar el sistema en el siguiente vídeo.

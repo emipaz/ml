@@ -1,0 +1,712 @@
+WEBVTT
+
+1
+00:00:00.240 --> 00:00:04.650
+Hola y bienvenido al aprendizaje automático
+para la producción.
+
+2
+00:00:04.650 --> 00:00:07.268
+Muchos alumnos han preguntado, Hola Andrew,
+
+3
+00:00:07.268 --> 00:00:11.940
+He aprendido a entrenar un modelo de
+de aprendizaje automático, ¿ahora qué hago?
+
+4
+00:00:11.940 --> 00:00:14.017
+Los modelos de aprendizaje automático son geniales,
+
+5
+00:00:14.017 --> 00:00:16.966
+pero a menos que sepas cómo
+ponerlos en producción,
+
+6
+00:00:16.966 --> 00:00:20.933
+es difícil conseguir que creen
+la máxima cantidad de valor posible.
+
+7
+00:00:20.933 --> 00:00:22.905
+O para
+aquellos que puedan estar buscando
+
+8
+00:00:22.905 --> 00:00:25.650
+un puesto en el aprendizaje de máquinas,
+muchas entrevistas también,
+
+9
+00:00:25.650 --> 00:00:29.643
+¿Has desplegado alguna vez una máquina
+algoritmo de aprendizaje automático.
+
+10
+00:00:29.643 --> 00:00:33.636
+En esta especialización de cuatro cursos,
+el primer curso impartido por mí, el segundo,
+
+11
+00:00:33.636 --> 00:00:35.611
+3ª y 4ª causas impartidas por Robert.
+
+12
+00:00:35.611 --> 00:00:37.940
+Crowe es un experto en esto de google.
+
+13
+00:00:37.940 --> 00:00:41.991
+Esperamos compartir con usted a la práctica
+habilidades y técnicas prácticas.
+
+14
+00:00:41.991 --> 00:00:45.430
+No sólo hay que construir
+un modelo de aprendizaje automático, sino
+
+15
+00:00:45.430 --> 00:00:47.740
+también ponerlos en producción.
+
+16
+00:00:47.740 --> 00:00:51.915
+Y así, al final de este primer curso y
+al final de esta especialización,
+
+17
+00:00:51.915 --> 00:00:56.450
+Espero que tengas una buena idea de todo el
+ciclo de vida del proyecto de aprendizaje automático.
+
+18
+00:00:56.450 --> 00:00:59.051
+Desde el modelo de entrenamiento hasta
+poner en producción y
+
+19
+00:00:59.051 --> 00:01:02.400
+realmente cómo gestionar todo el
+proyecto de aprendizaje automático.
+
+20
+00:01:02.400 --> 00:01:03.840
+Vamos a entrar.
+
+21
+00:01:03.840 --> 00:01:08.834
+Empecemos con un ejemplo, digamos que
+que estás utilizando la visión por ordenador para inspeccionar
+
+22
+00:01:08.834 --> 00:01:13.350
+los teléfonos que salen de una línea de fabricación
+para ver si hay defectos en ellos.
+
+23
+00:01:13.350 --> 00:01:16.941
+Así que este teléfono que se muestra a la izquierda
+no tiene ningún tramo en él.
+
+24
+00:01:16.941 --> 00:01:21.869
+Pero si hubiera un tramo de grieta o
+algo, una visión por ordenador
+
+25
+00:01:21.869 --> 00:01:27.503
+algoritmo sería capaz de
+encontrar este tipo de tramo, o defecto.
+
+26
+00:01:27.503 --> 00:01:33.340
+Y tal vez poner el cuadro delimitador alrededor
+como parte del control de calidad.
+
+27
+00:01:33.340 --> 00:01:37.519
+Si consigues un conjunto de datos de teléfonos
+teléfonos puedes entrenar una visión por ordenador
+
+28
+00:01:37.519 --> 00:01:41.650
+algoritmo tal vez en su red
+para detectar este tipo de defectos.
+
+29
+00:01:41.650 --> 00:01:47.240
+Pero, ¿qué hay que hacer ahora para
+poner esto en el despliegue de producción?
+
+30
+00:01:47.240 --> 00:01:52.100
+Este sería un ejemplo de cómo
+podría desplegar un sistema como este.
+
+31
+00:01:52.100 --> 00:01:54.524
+Podría tener un dispositivo de borde.
+
+32
+00:01:54.524 --> 00:01:59.111
+Por dispositivo de borde, me refiero a un dispositivo que está
+que vive dentro de la fábrica y que es
+
+33
+00:01:59.111 --> 00:02:01.620
+fabricando estos smartphones.
+
+34
+00:02:01.620 --> 00:02:06.084
+Y ese dispositivo de borde tendría una pieza
+de software de inspección cuyo trabajo es
+
+35
+00:02:06.084 --> 00:02:09.828
+es tomar una foto del teléfono,
+ver si hay un tramo y
+
+36
+00:02:09.828 --> 00:02:13.880
+luego tomar una decisión sobre si
+este teléfono es aceptable, o no.
+
+37
+00:02:13.880 --> 00:02:18.520
+Esto se hace comúnmente en
+las fábricas, se llama "automatización visual".
+
+38
+00:02:18.520 --> 00:02:19.930
+inspección de defectos.
+
+39
+00:02:19.930 --> 00:02:24.101
+Lo que hace el software de inspección es
+controlar la cámara que tomará
+
+40
+00:02:24.101 --> 00:02:27.948
+una foto del teléfono inteligente como
+sale de la línea de fabricación.
+
+41
+00:02:27.948 --> 00:02:35.480
+Y luego tiene que hacer una llamada a la API para
+pasar esta imagen a un servidor de predicción.
+
+42
+00:02:35.480 --> 00:02:40.224
+Y el trabajo del servidor de predicción
+es aceptar estas llamadas a la API,
+
+43
+00:02:40.224 --> 00:02:43.845
+recibir una imagen,
+tomar una decisión en cuanto a si o
+
+44
+00:02:43.845 --> 00:02:48.005
+este teléfono es defectuoso o no y
+devuelve esta predicción.
+
+45
+00:02:48.005 --> 00:02:51.714
+Y entonces el software de inspección puede
+tomar la decisión de control adecuada
+
+
+46
+00:02:51.714 --> 00:02:54.479
+si dejar que siga avanzando
+en la línea de fabricación.
+
+47
+00:02:54.479 --> 00:02:59.740
+O si hay que empujarla a un lado, porque
+era defectuoso y no era aceptable.
+
+48
+00:02:59.740 --> 00:03:03.366
+Así que después de haber entrenado
+un algoritmo de aprendizaje,
+
+49
+00:03:03.366 --> 00:03:08.237
+tal vez entrenar la red neuronal para tomar
+como entrada X, fotos de teléfonos.
+
+50
+00:03:08.237 --> 00:03:13.910
+Y mapear para obtener predicciones sobre
+si el teléfono es defectuoso o no.
+
+51
+00:03:13.910 --> 00:03:19.040
+Todavía tienes que tomar este
+modelo de aprendizaje automático.
+
+52
+00:03:19.040 --> 00:03:22.054
+Ponerlo en un servidor de producción,
+configurar las interfaces API y
+
+53
+00:03:22.054 --> 00:03:24.501
+realmente escribir todo
+el resto del software.
+
+54
+00:03:24.501 --> 00:03:29.940
+Con el fin de desplegar este aprendizaje
+algoritmo de aprendizaje en la producción.
+
+55
+00:03:29.940 --> 00:03:33.615
+Este servidor de predicción está
+a veces en la nube y
+
+56
+00:03:33.615 --> 00:03:38.230
+a veces el servidor de predicción
+está también en el borde.
+
+57
+00:03:38.230 --> 00:03:42.867
+De hecho, en la fabricación usamos mucho los despliegues
+de los bordes, porque no se puede tener
+
+58
+00:03:42.867 --> 00:03:46.680
+que tu fábrica se caiga cada vez que
+su acceso a Internet se caiga.
+
+59
+00:03:46.680 --> 00:03:51.192
+Pero los despliegues en la nube con predicción
+es un servidor en la nube,
+
+60
+00:03:51.192 --> 00:03:53.840
+también se utiliza para muchas aplicaciones.
+
+61
+00:03:53.840 --> 00:03:56.000
+Digamos que tú escribes todo el software.
+
+62
+00:03:56.000 --> 00:03:58.640
+¿Qué podría salir mal?
+
+63
+00:03:58.640 --> 00:04:03.093
+Resulta que sólo porque
+hayas entrenado un algoritmo de aprendizaje
+
+64
+00:04:03.093 --> 00:04:07.011
+que lo hace bien en su conjunto de pruebas,
+lo cual es de celebrar.
+
+65
+00:04:07.011 --> 00:04:10.140
+Es genial cuando lo haces bien
+cuando tienes un conjunto de pruebas.
+
+66
+00:04:10.140 --> 00:04:14.120
+Por desgracia, alcanzar ese
+hito no significa que hayas terminado.
+
+67
+00:04:14.120 --> 00:04:17.103
+Todavía puede haber mucho trabajo y
+
+68
+00:04:17.103 --> 00:04:23.240
+desafíos por delante para conseguir un valioso
+producción en funcionamiento.
+
+69
+00:04:23.240 --> 00:04:29.140
+Por ejemplo, digamos que sus conjuntos de
+tiene imágenes que se ven así.
+
+70
+00:04:29.140 --> 00:04:32.746
+Hay un buen teléfono a la izquierda,
+el del medio,
+
+71
+00:04:32.746 --> 00:04:37.555
+tiene un gran rasguño a través de él y
+has entrenado tu algoritmo de aprendizaje para
+
+72
+00:04:37.555 --> 00:04:40.955
+reconocer que los teléfonos como
+este de la izquierda están bien.
+
+73
+00:04:40.955 --> 00:04:46.721
+Lo que significa que no hay defectos y tal vez dibujar
+cuadros delimitadores alrededor de los arañazos o
+
+74
+00:04:46.721 --> 00:04:49.604
+otros defectos que encuentra y películas.
+
+75
+00:04:49.604 --> 00:04:53.871
+Cuando lo despliegues en la fábrica
+puede encontrar que la vida real
+
+76
+00:04:53.871 --> 00:04:58.786
+despliegue de producción te devuelve
+imágenes como estas mucho más oscuras.
+
+77
+00:04:58.786 --> 00:05:02.875
+Porque la fábrica de iluminación, porque las
+condiciones de iluminación en la fábrica han
+
+78
+00:05:02.875 --> 00:05:07.340
+cambiado por alguna razón en comparación con el
+momento en que se recogió el conjunto de entrenamiento.
+
+79
+00:05:07.340 --> 00:05:11.480
+Este problema se denomina a veces
+deriva del concepto o deriva de los datos.
+
+80
+00:05:11.480 --> 00:05:15.477
+Aprenderás más sobre estos
+términos más adelante en esta semana.
+
+81
+00:05:15.477 --> 00:05:20.155
+Pero este es un ejemplo de los muchos
+problemas prácticos que tenemos,
+
+82
+00:05:20.155 --> 00:05:25.009
+como ingenieros de aprendizaje automático deberíamos
+dar un paso adelante para resolver si queremos
+
+83
+00:05:25.009 --> 00:05:29.534
+asegurarnos de que no sólo lo hacemos
+bien en el conjunto de pruebas de retención.
+
+84
+00:05:29.534 --> 00:05:34.226
+Pero que nuestros sistemas realmente
+creen valor en la práctica
+
+85
+00:05:34.226 --> 00:05:37.840
+entorno de despliegue de producción.
+
+86
+00:05:37.840 --> 00:05:42.370
+He trabajado en bastantes proyectos
+donde mi equipo de aprendizaje automático y
+
+87
+00:05:42.370 --> 00:05:45.304
+Yo podría con éxito
+conocíamos una prueba de concepto.
+
+88
+00:05:45.304 --> 00:05:48.661
+Y con esto quiero decir que entrenamos
+un modelo en el cuaderno Júpiter y
+
+89
+00:05:48.661 --> 00:05:51.456
+funcionará muy bien y
+lo celebraremos.
+
+90
+00:05:51.456 --> 00:05:54.147
+Deberías celebrarlo
+cuando tengas un aprendizaje,
+
+91
+00:05:54.147 --> 00:05:58.340
+algoritmo ha funcionado bien en Jupiter
+en un entorno de desarrollo.
+
+92
+00:05:58.340 --> 00:06:03.424
+Pero resulta que a veces
+ver muchos proyectos en los que ese éxito,
+
+93
+00:06:03.424 --> 00:06:07.078
+que es un gran éxito para
+el despliegue práctico es
+
+94
+00:06:07.078 --> 00:06:09.791
+todavía otros seis meses de trabajo.
+
+95
+00:06:09.791 --> 00:06:15.623
+Y esto es sólo una de las muchas cosas
+cosas prácticas que un aprendizaje automático
+
+96
+00:06:15.623 --> 00:06:21.860
+equipo tiene que vigilar y manejar para
+para poder desplegar estos sistemas.
+
+97
+00:06:21.860 --> 00:06:25.530
+Algunos ingenieros de aprendizaje automático dirán
+no es un problema de aprendizaje automático para
+
+98
+00:06:25.530 --> 00:06:26.790
+abordar estos problemas.
+
+99
+00:06:26.790 --> 00:06:28.400
+El conjunto de datos cambia.
+
+100
+00:06:28.400 --> 00:06:32.440
+Algunos ingenieros de máquinas piensan bien,
+¿es ese el problema del aprendizaje automático?
+
+101
+00:06:32.440 --> 00:06:37.040
+Mi punto de vista es que nuestro trabajo
+es hacer que estas cosas funcionen.
+
+102
+00:06:37.040 --> 00:06:41.723
+Y así, si el conjunto de datos ha cambiado es
+Pienso que es mi responsabilidad
+
+103
+00:06:41.723 --> 00:06:45.110
+cuando trabajo en un proyecto para intervenir y
+hacer lo que pueda para
+
+104
+00:06:45.110 --> 00:06:49.440
+acceder a la distribución de datos tal y como es
+como es y no como me gustaría que fuera.
+
+105
+00:06:49.440 --> 00:06:53.436
+Así que esta especialización te enseñará
+sobre muchas de estas importantes prácticas
+
+106
+00:06:53.436 --> 00:06:57.310
+para construir sistemas de aprendizaje automático
+que funcionan no sólo en el laboratorio,
+
+107
+00:06:57.310 --> 00:07:02.040
+no sólo en el cuaderno Jupiter, sino
+en un entorno de despliegue de producción.
+
+108
+00:07:02.040 --> 00:07:05.721
+Un segundo reto en el despliegue de
+modelos de aprendizaje automático y
+
+109
+00:07:05.721 --> 00:07:09.780
+producción es que se necesita mucho
+más que código de aprendizaje automático.
+
+110
+00:07:09.780 --> 00:07:14.671
+Durante la última década ha habido mucha
+atención a los modelos de aprendizaje automático.
+
+111
+00:07:14.671 --> 00:07:18.810
+Así que tu red neuronal u
+otro algoritmo que aprende
+
+112
+00:07:18.810 --> 00:07:22.970
+una función de mapeo de
+alguna entrada a alguna salida.
+
+113
+00:07:22.970 --> 00:07:28.240
+Y eso ha sido un progreso increíble
+en los modelos de aprendizaje automático.
+
+114
+00:07:28.240 --> 00:07:32.991
+Pero resulta que si miras
+un sistema de aprendizaje automático en producción,
+
+115
+00:07:32.991 --> 00:07:37.451
+si este pequeño rectángulo naranja
+representa el código de aprendizaje automático,
+
+116
+00:07:37.451 --> 00:07:39.587
+el código del modelo de aprendizaje automático.
+
+117
+00:07:39.587 --> 00:07:45.040
+Entonces este es todo el código que necesitas para
+todo el proyecto de aprendizaje automático.
+
+118
+00:07:45.040 --> 00:07:48.668
+Creo que para
+muchos proyectos de aprendizaje automático,
+
+119
+00:07:48.668 --> 00:07:52.670
+tal vez sólo el 5-10%,
+tal vez incluso menos del código.
+
+120
+00:07:52.670 --> 00:07:54.130
+Código de aprendizaje automático.
+
+121
+00:07:54.130 --> 00:07:58.139
+Y creo que esta es una de las
+las razones por las que cuando tienes
+
+122
+00:07:58.139 --> 00:08:02.619
+un modelo de prueba de concepto
+trabajando tal vez Jupiter notebook.
+
+123
+00:08:02.619 --> 00:08:07.011
+Todavía puede ser un montón de trabajo
+pasar de esa prueba inicial de
+
+124
+00:08:07.011 --> 00:08:10.140
+concepto hasta el despliegue de producción.
+
+125
+00:08:10.140 --> 00:08:13.430
+Así que a veces la gente se refiere al POC.
+
+126
+00:08:13.430 --> 00:08:17.240
+O la brecha entre la prueba de concepto y la producción.
+
+127
+00:08:17.240 --> 00:08:23.722
+Y gran parte de esa brecha es a veces sólo
+la gran cantidad de trabajo que supone también
+
+128
+00:08:23.722 --> 00:08:30.880
+...escribir todo este código más allá...
+el código inicial del modelo de aprendizaje automático.
+
+129
+00:08:30.880 --> 00:08:33.970
+¿Y qué es todo este otro material?
+
+130
+00:08:33.970 --> 00:08:40.867
+Este es un diagrama que he adaptado
+de un trabajo de D Scully y otros.
+
+131
+00:08:40.867 --> 00:08:45.541
+Más allá de los códigos de aprendizaje automático
+también hay muchos componentes,
+
+132
+00:08:45.541 --> 00:08:48.821
+especialmente componentes para
+gestionar los datos,
+
+133
+00:08:48.821 --> 00:08:53.663
+como la recogida de datos,
+la verificación de datos, la extracción de características.
+
+134
+00:08:53.663 --> 00:08:55.566
+Y después de servirlo,
+
+135
+00:08:55.566 --> 00:09:00.840
+como supervisar el sistema supervisará
+los datos de vuelta, te ayudará a analizarlos.
+
+136
+00:09:00.840 --> 00:09:05.752
+Pero a menudo hay muchos otros componentes
+que necesitan ser construidos para permitir un trabajo
+
+137
+00:09:05.752 --> 00:09:07.360
+despliegue de producción.
+
+138
+00:09:07.360 --> 00:09:11.759
+Así que en este curso se aprende lo que
+son todas estas otras piezas de
+
+139
+00:09:11.759 --> 00:09:15.840
+software necesario para
+un valioso despliegue de producción.
+
+140
+00:09:15.840 --> 00:09:20.016
+Pero en lugar de mirar a todos estos
+pieza compleja es una de las más útiles
+
+141
+00:09:20.016 --> 00:09:22.181
+marcos se encuentran para organizar.
+
+142
+00:09:22.181 --> 00:09:26.641
+El flujo de trabajo de un proyecto de aprendizaje automático
+es planificar sistemáticamente la vida
+
+143
+00:09:26.641 --> 00:09:29.140
+de un proyecto de aprendizaje automático.
+
+144
+00:09:29.140 --> 00:09:33.765
+Pasemos al siguiente vídeo para profundizar en
+lo que es el ciclo de vida completo de una máquina
+
+145
+00:09:33.765 --> 00:09:35.020
+proyecto de aprendizaje.
+
+146
+00:09:35.020 --> 00:09:37.672
+Y espero que este marco
+sea muy útil para
+
+147
+00:09:37.672 --> 00:09:41.810
+todos tus proyectos de aprendizaje automático
+que planees desplegar en el futuro.
+
+148
+00:09:41.810 --> 00:09:43.061
+Pasemos al siguiente vídeo

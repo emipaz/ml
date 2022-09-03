@@ -1,0 +1,1111 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.510
+
+
+2
+00:00:02.510 --> 00:00:05.220
+¿Cómo se puede supervisar un
+sistema de aprendizaje automático para
+asegurarse de que cumple
+
+3
+00:00:05.220 --> 00:00:07.170
+sus expectativas de rendimiento?
+
+4
+00:00:07.170 --> 00:00:10.245
+En este vídeo, aprenderás
+aprenderás sobre las mejores prácticas
+
+5
+00:00:10.245 --> 00:00:13.620
+para supervisar los sistemas de
+sistemas de aprendizaje automático.
+
+6
+00:00:13.620 --> 00:00:15.180
+La forma más común de
+
+7
+00:00:15.180 --> 00:00:17.280
+supervisar un sistema de
+sistema de aprendizaje automático es
+
+8
+00:00:17.280 --> 00:00:21.835
+utilizar un panel de control para seguir
+cómo lo está haciendo a lo largo del tiempo.
+
+9
+00:00:21.835 --> 00:00:23.360
+Dependiendo de su aplicación,
+
+10
+00:00:23.360 --> 00:00:26.045
+sus cuadros de mando pueden
+monitorear diferentes métricas.
+
+11
+00:00:26.045 --> 00:00:27.620
+Por ejemplo, puedes tener
+
+12
+00:00:27.620 --> 00:00:30.740
+un panel de control para supervisar
+la carga del servidor,
+
+13
+00:00:30.740 --> 00:00:33.424
+o un diferente
+cuadros de mando para supervisar
+
+14
+00:00:33.424 --> 00:00:36.215
+la difracción de las salidas no nulas.
+
+15
+00:00:36.215 --> 00:00:38.570
+A veces un sistema de
+salida del sistema de reconocimiento del habla
+
+16
+00:00:38.570 --> 00:00:41.255
+es nula cuando las cosas que
+los usuarios no han dicho nada.
+
+17
+00:00:41.255 --> 00:00:44.315
+Si esto cambia
+dramáticamente con el tiempo,
+
+18
+00:00:44.315 --> 00:00:47.090
+puede ser una indicación
+de que algo va mal,
+
+19
+00:00:47.090 --> 00:00:50.405
+o uno común que he
+visto para un montón de
+
+20
+00:00:50.405 --> 00:00:52.565
+tarea de datos estructurados es
+
+21
+00:00:52.565 --> 00:00:55.820
+controlando la fracción
+de valores de entrada perdidos.
+
+22
+00:00:55.820 --> 00:00:57.530
+Si esto cambia, puede significar que
+
+23
+00:00:57.530 --> 00:01:00.055
+algo ha cambiado
+en sus datos.
+
+24
+00:01:00.055 --> 00:01:03.290
+Cuando intentas
+decidir lo que se va a supervisar,
+
+25
+00:01:03.290 --> 00:01:06.230
+mi recomendación es
+que te sientes con
+
+26
+00:01:06.230 --> 00:01:08.134
+tu equipo y hagas una lluvia de ideas
+
+27
+00:01:08.134 --> 00:01:10.190
+todas las cosas que
+podrían salir mal.
+
+28
+00:01:10.190 --> 00:01:13.955
+Entonces querrás saber
+si algo sale mal.
+
+29
+00:01:13.955 --> 00:01:16.505
+Para todas las cosas
+que podrían salir mal,
+
+30
+00:01:16.505 --> 00:01:18.830
+haz una lluvia de ideas con algunas estadísticas o
+
+31
+00:01:18.830 --> 00:01:22.580
+unas cuantas métricas que
+detectar ese problema.
+
+32
+00:01:22.580 --> 00:01:24.440
+Por ejemplo, si estás preocupado
+
+33
+00:01:24.440 --> 00:01:27.049
+por los picos de tráfico de los usuarios,
+
+34
+00:01:27.049 --> 00:01:29.870
+causando que el servicio
+se sobrecargue,
+
+35
+00:01:29.870 --> 00:01:33.095
+entonces las cargas del servidor
+tal vez una métrica,
+
+36
+00:01:33.095 --> 00:01:37.315
+se podría hacer un seguimiento y así sucesivamente
+para los otros ejemplos aquí.
+
+37
+00:01:37.315 --> 00:01:39.290
+Cuando estoy diseñando
+
+38
+00:01:39.290 --> 00:01:41.900
+mis tableros de control
+por primera vez,
+
+39
+00:01:41.900 --> 00:01:44.870
+Creo que está bien empezar
+
+40
+00:01:44.870 --> 00:01:47.840
+con un montón de diferentes
+métricas y monitorear
+
+41
+00:01:47.840 --> 00:01:49.430
+un conjunto relativamente grande
+
+42
+00:01:49.430 --> 00:01:51.560
+y luego gradualmente
+eliminar los que
+
+43
+00:01:51.560 --> 00:01:55.310
+que, con el tiempo, no te resulten
+no son particularmente útiles.
+
+44
+00:01:55.310 --> 00:01:58.070
+Estos son algunos ejemplos
+de métricas nuestras vistas
+
+45
+00:01:58.070 --> 00:02:01.190
+o he visto que otros utilizan
+en una variedad de proyectos.
+
+46
+00:02:01.190 --> 00:02:03.575
+En primer lugar están las métricas del software,
+
+47
+00:02:03.575 --> 00:02:05.480
+como la memoria, la computación,
+
+48
+00:02:05.480 --> 00:02:07.715
+latencia, rendimiento, carga del servidor,
+
+49
+00:02:07.715 --> 00:02:10.010
+cosas que te ayudan a
+monitorizar la salud
+
+50
+00:02:10.010 --> 00:02:12.890
+de su software
+implementación de
+
+51
+00:02:12.890 --> 00:02:14.600
+el servicio de predicción o
+
+52
+00:02:14.600 --> 00:02:18.765
+otras piezas de software alrededor de
+su algoritmo de aprendizaje.
+
+53
+00:02:18.765 --> 00:02:21.395
+Pero estas métricas de software
+te ayudarán a asegurarte
+
+54
+00:02:21.395 --> 00:02:24.080
+que su software
+está funcionando bien.
+
+55
+00:02:24.080 --> 00:02:26.300
+Muchas herramientas de MLOps
+vienen a través de los combates
+
+56
+00:02:26.300 --> 00:02:29.150
+que ya hacen un seguimiento de estas
+métricas de software.
+
+57
+00:02:29.150 --> 00:02:31.384
+Además de las
+métricas de software,
+
+58
+00:02:31.384 --> 00:02:35.030
+A menudo elegiría
+otras métricas que ayudan
+
+59
+00:02:35.030 --> 00:02:38.045
+controlar la salud estadística
+
+60
+00:02:38.045 --> 00:02:41.030
+o el rendimiento del
+el algoritmo de aprendizaje.
+
+61
+00:02:41.030 --> 00:02:43.760
+A grandes rasgos, hay dos tipos de
+
+62
+00:02:43.760 --> 00:02:46.520
+métricas que podrías
+hacer una lluvia de ideas.
+
+63
+00:02:46.520 --> 00:02:48.530
+Una es la métrica de entrada,
+
+64
+00:02:48.530 --> 00:02:50.870
+que son métricas
+que miden ha
+
+65
+00:02:50.870 --> 00:02:53.465
+su distribución de entrada x cambio.
+
+66
+00:02:53.465 --> 00:02:55.700
+Por ejemplo, si usted es
+
+67
+00:02:55.700 --> 00:02:58.115
+construyendo un sistema de
+sistema de reconocimiento de voz,
+
+68
+00:02:58.115 --> 00:03:01.160
+se puede controlar la
+longitud media de la entrada
+
+69
+00:03:01.160 --> 00:03:02.720
+en segundos de la longitud para
+
+70
+00:03:02.720 --> 00:03:04.670
+el clip de audio alimentado a su sistema.
+
+71
+00:03:04.670 --> 00:03:08.080
+Puede controlar el
+volumen medio de entrada.
+
+72
+00:03:08.080 --> 00:03:11.179
+Si esto cambia por alguna razón,
+
+73
+00:03:11.179 --> 00:03:14.000
+eso podría ser algo
+que una vez que eche un vistazo
+
+74
+00:03:14.000 --> 00:03:15.650
+sólo para asegurarte de que esto
+
+75
+00:03:15.650 --> 00:03:17.960
+no ha dañado el rendimiento
+de tu algoritmo.
+
+76
+00:03:17.960 --> 00:03:19.460
+que acabo de mencionar,
+
+77
+00:03:19.460 --> 00:03:20.900
+número o porcentaje de
+
+78
+00:03:20.900 --> 00:03:23.840
+valores perdidos es una
+métrica muy común.
+
+79
+00:03:23.840 --> 00:03:25.610
+Cuando se utilizan datos estructurados,
+
+80
+00:03:25.610 --> 00:03:28.150
+algunos de los cuales pueden
+tener valores perdidos,
+
+81
+00:03:28.150 --> 00:03:31.235
+o para la fabricación
+ejemplo de inspección visual,
+
+82
+00:03:31.235 --> 00:03:34.205
+se podría controlar
+el brillo medio de la imagen
+
+83
+00:03:34.205 --> 00:03:36.650
+si crees que las condiciones de
+las condiciones de iluminación podrían cambiar,
+
+84
+00:03:36.650 --> 00:03:38.960
+y quieres asegurarte
+de saber si lo hace,
+
+85
+00:03:38.960 --> 00:03:42.110
+así que puedes hacer una lluvia de ideas
+diferentes métricas para ver si
+
+86
+00:03:42.110 --> 00:03:46.055
+su distribución de entrada
+x podría haber cambiado.
+
+87
+00:03:46.055 --> 00:03:49.580
+Un segundo conjunto de métricas
+que te ayudan a entender
+
+88
+00:03:49.580 --> 00:03:51.050
+si tu algoritmo de aprendizaje
+algoritmo de aprendizaje está funcionando
+
+89
+00:03:51.050 --> 00:03:53.435
+bien son las métricas de salida.
+
+90
+00:03:53.435 --> 00:03:56.180
+Por ejemplo, ¿con qué frecuencia
+
+91
+00:03:56.180 --> 00:03:59.000
+su sistema de reconocimiento de voz
+sistema de reconocimiento de voz devuelve null,
+
+92
+00:03:59.000 --> 00:04:00.170
+la cadena vacía, porque
+
+93
+00:04:00.170 --> 00:04:02.030
+las cosas que el usuario
+no dice nada,
+
+94
+00:04:02.030 --> 00:04:04.490
+o si ha construido
+
+95
+00:04:04.490 --> 00:04:08.660
+un sistema de reconocimiento de voz
+para la búsqueda en la web utilizando la voz,
+
+96
+00:04:08.660 --> 00:04:12.755
+se podría decidir ver
+la frecuencia con la que el usuario
+
+97
+00:04:12.755 --> 00:04:14.780
+hace dos búsquedas muy rápidas en
+
+98
+00:04:14.780 --> 00:04:17.015
+una fila con sustancialmente
+la misma entrada.
+
+99
+00:04:17.015 --> 00:04:18.635
+Eso podría ser una señal de que
+
+100
+00:04:18.635 --> 00:04:21.860
+reconozca erróneamente su consulta
+la primera vez.
+
+101
+00:04:21.860 --> 00:04:23.900
+Es una señal imperfecta pero
+
+102
+00:04:23.900 --> 00:04:26.870
+podría probar esta métrica
+y ver si ayuda.
+
+103
+00:04:26.870 --> 00:04:28.610
+O podría controlar
+el número de
+
+104
+00:04:28.610 --> 00:04:30.620
+veces que el usuario intenta por primera vez
+
+105
+00:04:30.620 --> 00:04:34.820
+utilizar el sistema de voz y
+luego pasa a teclear,
+
+106
+00:04:34.820 --> 00:04:36.110
+eso podría ser una señal de que
+
+107
+00:04:36.110 --> 00:04:39.320
+el usuario se frustró
+o se dio por vencido
+
+108
+00:04:39.320 --> 00:04:41.210
+su sistema de voz y
+
+109
+00:04:41.210 --> 00:04:43.890
+podría indicar
+una degradación del rendimiento.
+
+110
+00:04:43.890 --> 00:04:45.530
+Por supuesto, para la búsqueda en la web,
+
+111
+00:04:45.530 --> 00:04:47.450
+también utilizarías quizás muy
+
+112
+00:04:47.450 --> 00:04:50.315
+métricas del curso como
+la tasa de clics o CTR,
+
+113
+00:04:50.315 --> 00:04:54.040
+sólo para asegurarse de que el
+sistema en general es saludable.
+
+114
+00:04:54.040 --> 00:04:57.050
+Estas métricas de salida
+pueden ayudarte a calcular
+
+115
+00:04:57.050 --> 00:04:59.725
+si su
+algoritmo de aprendizaje,
+
+116
+00:04:59.725 --> 00:05:02.775
+la salida y ha cambiado de alguna manera,
+
+117
+00:05:02.775 --> 00:05:04.775
+o si algo que viene
+
+118
+00:05:04.775 --> 00:05:06.815
+incluso después de su aprendizaje
+algoritmos de salida,
+
+119
+00:05:06.815 --> 00:05:08.540
+como por ejemplo que el usuario
+cambiando a
+
+120
+00:05:08.540 --> 00:05:12.140
+la escritura ha cambiado de
+alguna manera significativa.
+
+121
+00:05:12.140 --> 00:05:13.640
+Porque las métricas de entrada y salida
+
+122
+00:05:13.640 --> 00:05:15.095
+son específicas de la aplicación,
+
+123
+00:05:15.095 --> 00:05:18.185
+la mayoría de las herramientas de MLOps necesitarán
+ser configuradas específicamente
+
+124
+00:05:18.185 --> 00:05:19.310
+para rastrear la entrada y
+
+125
+00:05:19.310 --> 00:05:21.425
+métricas de salida para
+su aplicación.
+
+126
+00:05:21.425 --> 00:05:25.010
+Puede que ya sepas que
+el modelado de aprendizaje automático es
+
+127
+00:05:25.010 --> 00:05:28.490
+un proceso altamente iterativo
+proceso, así como el despliegue.
+
+128
+00:05:28.490 --> 00:05:30.725
+Tomar la modelización, sería
+
+129
+00:05:30.725 --> 00:05:33.699
+con un modelo de aprendizaje
+de aprendizaje automático y algunos datos,
+
+130
+00:05:33.699 --> 00:05:36.805
+entrenar el modelo,
+eso es un experimento.
+
+131
+00:05:36.805 --> 00:05:39.650
+Luego haz el análisis de errores y utiliza
+
+132
+00:05:39.650 --> 00:05:42.230
+el análisis de errores para volver
+para averiguar cómo
+
+133
+00:05:42.230 --> 00:05:43.700
+mejorar el modelo o
+
+134
+00:05:43.700 --> 00:05:46.760
+sus datos y es por
+iterando a través de
+
+135
+00:05:46.760 --> 00:05:49.160
+este bucle varias veces
+veces que luego
+
+136
+00:05:49.160 --> 00:05:52.535
+ojalá consiga un buen modelo.
+
+137
+00:05:52.535 --> 00:05:54.845
+Te animo a que pienses en
+
+138
+00:05:54.845 --> 00:05:58.415
+despliegues como un
+proceso iterativo también.
+
+139
+00:05:58.415 --> 00:06:01.700
+Cuando tengas tus primeros
+despliegues y
+
+140
+00:06:01.700 --> 00:06:06.020
+funcionando y poner en su lugar un
+conjunto de paneles de control.
+
+141
+00:06:06.020 --> 00:06:09.500
+Pero eso es sólo el comienzo
+de este proceso iterativo.
+
+142
+00:06:09.500 --> 00:06:11.795
+Un sistema en funcionamiento
+permite obtener
+
+143
+00:06:11.795 --> 00:06:15.155
+datos reales de los usuarios o del tráfico real.
+
+144
+00:06:15.155 --> 00:06:18.230
+Es al ver cómo
+su algoritmo de aprendizaje
+
+145
+00:06:18.230 --> 00:06:21.530
+se comporta con datos reales
+en el tráfico real que,
+
+146
+00:06:21.530 --> 00:06:25.460
+que le permite hacer
+análisis de rendimiento,
+
+147
+00:06:25.460 --> 00:06:28.745
+y esto a su vez
+te ayuda a actualizar
+
+148
+00:06:28.745 --> 00:06:32.375
+su despliegue y a seguir
+en la supervisión de su sistema.
+
+149
+00:06:32.375 --> 00:06:35.225
+En mi experiencia
+normalmente se necesita
+
+150
+00:06:35.225 --> 00:06:37.565
+unos cuantos intentos para converger
+
+151
+00:06:37.565 --> 00:06:40.205
+al conjunto correcto de
+métricas a monitorizar.
+
+152
+00:06:40.205 --> 00:06:43.100
+A veces hemos desplegado el
+sistema de aprendizaje automático,
+
+153
+00:06:43.100 --> 00:06:45.620
+y no es raro
+que se despliegue
+
+154
+00:06:45.620 --> 00:06:48.710
+sistema de aprendizaje automático con
+un conjunto inicial de métricas
+
+155
+00:06:48.710 --> 00:06:51.020
+sólo para ejecutar el sistema para
+
+156
+00:06:51.020 --> 00:06:53.510
+unas semanas y luego
+para darse cuenta de que
+
+157
+00:06:53.510 --> 00:06:54.650
+algo podría ir mal con
+
+158
+00:06:54.650 --> 00:06:55.670
+que no habías pensado
+
+159
+00:06:55.670 --> 00:06:58.925
+antes y en elegir una
+nueva métrica para monitorear.
+
+160
+00:06:58.925 --> 00:07:01.670
+O para que tengas alguna
+métrica que monitoreas
+
+161
+00:07:01.670 --> 00:07:04.415
+durante unas semanas y luego
+decida que son sólo métricas,
+
+162
+00:07:04.415 --> 00:07:06.860
+apenas cambia
+en hace es inducible,
+
+163
+00:07:06.860 --> 00:07:08.870
+y para deshacerse de esa métrica en
+
+164
+00:07:08.870 --> 00:07:11.300
+a favor de centrar la atención
+en otra cosa.
+
+165
+00:07:11.300 --> 00:07:14.660
+Después de haber elegido un conjunto
+de métricas para monitorear,
+
+166
+00:07:14.660 --> 00:07:18.590
+una práctica común sería
+establecer umbrales para las alarmas.
+
+167
+00:07:18.590 --> 00:07:20.690
+Usted puede decidir en base a este conjunto,
+
+168
+00:07:20.690 --> 00:07:26.370
+si la carga del servidor
+supera alguna vez el 0,91,
+
+169
+00:07:27.010 --> 00:07:29.690
+que puede activar una alarma o
+
+170
+00:07:29.690 --> 00:07:32.120
+una notificación para
+avisar o dejar que
+
+171
+00:07:32.120 --> 00:07:34.370
+al equipo para ver si
+hay un problema y
+
+172
+00:07:34.370 --> 00:07:36.875
+tal vez hacer girar algunos servidores más.
+
+173
+00:07:36.875 --> 00:07:40.400
+O si la moda de
+objetivos no nulos más
+
+174
+00:07:40.400 --> 00:07:43.565
+por encima o más allá de
+ciertos umbrales
+
+175
+00:07:43.565 --> 00:07:45.380
+que podrían activar una alarma.
+
+176
+00:07:45.380 --> 00:07:48.395
+O si no lo son, la fracción
+de valores perdidos va
+
+177
+00:07:48.395 --> 00:07:51.665
+por encima o por debajo de algún
+conjunto de umbrales,
+
+178
+00:07:51.665 --> 00:07:54.410
+tal vez eso debería
+activar una alarma,
+
+179
+00:07:54.410 --> 00:07:56.960
+y está bien si se adapta
+
+180
+00:07:56.960 --> 00:07:59.960
+las métricas y los
+umbrales a lo largo del tiempo para
+
+181
+00:07:59.960 --> 00:08:02.285
+asegúrese de que
+le están marcando a usted
+
+182
+00:08:02.285 --> 00:08:05.690
+los casos más relevantes
+casos de interés.
+
+183
+00:08:05.690 --> 00:08:09.080
+Si algo va mal con
+su algoritmo de aprendizaje,
+
+184
+00:08:09.080 --> 00:08:13.820
+si es un problema de software como
+como que la carga del servidor es demasiado alta,
+
+185
+00:08:13.820 --> 00:08:15.755
+entonces eso puede requerir
+
+186
+00:08:15.755 --> 00:08:18.095
+cambiar el software
+de software,
+
+187
+00:08:18.095 --> 00:08:20.990
+o si es un problema de rendimiento
+
+188
+00:08:20.990 --> 00:08:24.155
+asociado a la precisión
+del algoritmo de aprendizaje,
+
+189
+00:08:24.155 --> 00:08:28.115
+entonces es posible que tenga que
+actualizar su modelo.
+
+190
+00:08:28.115 --> 00:08:30.080
+O si se trata de un problema asociado
+
+191
+00:08:30.080 --> 00:08:32.105
+con la precisión del
+el algoritmo de aprendizaje,
+
+192
+00:08:32.105 --> 00:08:35.375
+entonces usted puede necesitar para ir
+para arreglar eso, por eso
+
+193
+00:08:35.375 --> 00:08:38.210
+muchos modelos de aprendizaje automático
+necesitarán un poco de
+
+194
+00:08:38.210 --> 00:08:41.180
+de mantenimiento o
+reentrenamiento con el tiempo.
+
+195
+00:08:41.180 --> 00:08:43.415
+Como casi todo el software
+
+196
+00:08:43.415 --> 00:08:46.070
+necesita algún nivel de
+de mantenimiento.
+
+197
+00:08:46.070 --> 00:08:48.200
+Cuando un modelo necesita ser actualizado,
+
+198
+00:08:48.200 --> 00:08:52.475
+puedes volver a entrenarlo
+manualmente, donde en Engineer,
+
+199
+00:08:52.475 --> 00:08:53.840
+puede volver a entrenar
+
+200
+00:08:53.840 --> 00:08:55.910
+el modelo realice
+análisis de errores y
+
+201
+00:08:55.910 --> 00:08:57.320
+el nuevo modelo y
+asegúrese de que parece
+
+202
+00:08:57.320 --> 00:08:59.600
+bien antes de empujar
+a la implementación.
+
+203
+00:08:59.600 --> 00:09:01.310
+O también puedes poner en marcha
+
+204
+00:09:01.310 --> 00:09:04.430
+un sistema en el que haya
+un sistema en el que se produzca un reentrenamiento automático.
+
+205
+00:09:04.430 --> 00:09:07.220
+Hoy en día, el reentrenamiento manual está lejos
+
+206
+00:09:07.220 --> 00:09:09.890
+más común que
+el entrenamiento automático para
+
+207
+00:09:09.890 --> 00:09:14.390
+muchos desarrolladores de aplicaciones
+son reacios a aprender
+
+208
+00:09:14.390 --> 00:09:17.390
+algoritmo sea totalmente
+automático en términos de
+
+209
+00:09:17.390 --> 00:09:20.630
+decidir el reentrenamiento y empujar
+nuevo modelo a la producción,
+
+210
+00:09:20.630 --> 00:09:23.345
+pero hay algunas aplicaciones,
+
+211
+00:09:23.345 --> 00:09:25.490
+especialmente en el consumidor
+de consumo de Internet,
+
+212
+00:09:25.490 --> 00:09:29.150
+donde automáticamente
+la formación se produce.
+
+213
+00:09:29.150 --> 00:09:34.430
+Hablaremos más sobre el reentrenamiento
+y cómo investigar o verificar
+
+214
+00:09:34.430 --> 00:09:36.830
+el rendimiento de un modelo
+antes de empujar
+
+215
+00:09:36.830 --> 00:09:40.670
+un nuevo modelo a la producción
+en los vídeos de la próxima semana.
+
+216
+00:09:40.670 --> 00:09:43.970
+Pero lo más importante es que
+
+217
+00:09:43.970 --> 00:09:47.135
+es sólo mediante la supervisión
+el sistema que
+
+218
+00:09:47.135 --> 00:09:50.750
+puedes detectar si puede haber
+haber un problema que pueda
+
+219
+00:09:50.750 --> 00:09:55.250
+hacer que vuelvas a realizar
+un análisis de errores más profundo,
+
+220
+00:09:55.250 --> 00:10:01.910
+o que te haga volver a
+volver a obtener más datos
+
+221
+00:10:01.910 --> 00:10:05.720
+con los que puedes
+actualizar tu modelo para que
+
+222
+00:10:05.720 --> 00:10:09.875
+para mantener o mejorar
+el rendimiento de su sistema.
+
+223
+00:10:09.875 --> 00:10:13.220
+Usted aprende más sobre
+cómo actualizar los modelos
+
+224
+00:10:13.220 --> 00:10:16.490
+en las próximas dos semanas
+materiales también.
+
+225
+00:10:16.490 --> 00:10:18.380
+En este vídeo
+aprenderás a
+
+226
+00:10:18.380 --> 00:10:20.810
+supervisar el rendimiento del
+el sistema de aprendizaje automático,
+
+227
+00:10:20.810 --> 00:10:22.265
+para que en caso de que algo
+
+228
+00:10:22.265 --> 00:10:23.795
+necesita ser mantenido o arreglado,
+
+229
+00:10:23.795 --> 00:10:25.130
+puede ser alertado para que
+
+230
+00:10:25.130 --> 00:10:26.705
+puedan tomar las medidas oportunas.
+
+231
+00:10:26.705 --> 00:10:28.670
+Hemos hablado de cómo controlar
+
+232
+00:10:28.670 --> 00:10:31.490
+el rendimiento de un único
+modelo de aprendizaje automático.
+
+233
+00:10:31.490 --> 00:10:33.455
+Uno de los conceptos más útiles
+
+234
+00:10:33.455 --> 00:10:35.780
+es para los sistemas más complejos,
+
+235
+00:10:35.780 --> 00:10:37.940
+donde no se tiene
+un solo modelo
+
+236
+00:10:37.940 --> 00:10:40.865
+con un proceso más complejo de
+de aprendizaje automático,
+
+237
+00:10:40.865 --> 00:10:43.205
+¿cómo se controla el
+rendimiento de eso?
+
+238
+00:10:43.205 --> 00:10:46.170
+Aprenderás sobre eso
+en el siguiente vídeo.

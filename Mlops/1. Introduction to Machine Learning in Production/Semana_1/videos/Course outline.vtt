@@ -1,0 +1,308 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.630
+Ha visto el ciclo de vida del proyecto de
+de aprendizaje automático.
+
+2
+00:00:03.630 --> 00:00:05.550
+Vamos a repasar brevemente lo que
+
+3
+00:00:05.550 --> 00:00:07.935
+aprenderás en el
+resto de este curso.
+
+4
+00:00:07.935 --> 00:00:09.720
+Aunque he presentado
+
+5
+00:00:09.720 --> 00:00:12.585
+el ciclo de la vida yendo
+de izquierda a derecha,
+
+6
+00:00:12.585 --> 00:00:15.480
+He descubierto que para aprender
+estos materiales,
+
+7
+00:00:15.480 --> 00:00:17.340
+será más eficiente para
+
+8
+00:00:17.340 --> 00:00:19.215
+empezar por el objetivo final,
+
+9
+00:00:19.215 --> 00:00:20.790
+y empezar desde el despliegue,
+
+10
+00:00:20.790 --> 00:00:22.740
+y luego trabajar hacia atrás para
+
+11
+00:00:22.740 --> 00:00:25.050
+datos de modelado y luego el alcance.
+
+12
+00:00:25.050 --> 00:00:26.715
+En el resto de esta semana,
+
+13
+00:00:26.715 --> 00:00:28.095
+comenzando con el siguiente video,
+
+14
+00:00:28.095 --> 00:00:30.585
+aprenderás sobre las
+ideas más importantes
+
+15
+00:00:30.585 --> 00:00:32.190
+en el despliegue.
+
+16
+00:00:32.190 --> 00:00:34.125
+La próxima semana, en la Semana 2,
+
+17
+00:00:34.125 --> 00:00:36.285
+aprenderás sobre el modelado.
+
+18
+00:00:36.285 --> 00:00:38.430
+Puede que hayas aprendido
+sobre cómo entrenar
+
+19
+00:00:38.430 --> 00:00:40.970
+un modelo de aprendizaje automático
+en otros cursos.
+
+20
+00:00:40.970 --> 00:00:42.875
+En este vídeo, compartiré
+
+21
+00:00:42.875 --> 00:00:46.280
+algunas ideas nuevas que tal vez
+no hayas oído antes de
+
+22
+00:00:46.280 --> 00:00:49.595
+cómo utilizar sistemáticamente
+un enfoque centrado en los datos
+
+23
+00:00:49.595 --> 00:00:51.380
+para ser más eficiente en la forma de
+
+24
+00:00:51.380 --> 00:00:53.500
+mejorar el rendimiento
+de su modelo.
+
+25
+00:00:53.500 --> 00:00:55.230
+Luego, en el tercero,
+
+26
+00:00:55.230 --> 00:00:57.195
+y última semana de este curso,
+
+27
+00:00:57.195 --> 00:00:59.135
+aprenderás sobre los datos.
+
+28
+00:00:59.135 --> 00:01:02.375
+Cómo definir los datos y
+establecer una línea de base,
+
+29
+00:01:02.375 --> 00:01:04.190
+y cómo etiquetar y organizar
+
+30
+00:01:04.190 --> 00:01:07.245
+tus datos de una manera
+que sea sistemática.
+
+31
+00:01:07.245 --> 00:01:09.540
+No ad hoc, no hackeando en
+
+32
+00:01:09.540 --> 00:01:10.940
+el cuaderno Jupyter con la esperanza
+
+33
+00:01:10.940 --> 00:01:12.500
+que te tropieces con
+las ideas correctas,
+
+34
+00:01:12.500 --> 00:01:14.135
+pero de una manera más sistemática
+
+35
+00:01:14.135 --> 00:01:16.160
+que te ayuda a ser
+más eficiente en
+
+36
+00:01:16.160 --> 00:01:18.230
+definir los datos que ayudarán a
+
+37
+00:01:18.230 --> 00:01:20.920
+el modelado para ayudar
+llegar al despliegue.
+
+38
+00:01:20.920 --> 00:01:23.300
+Finalmente, en la tercera semana
+
+39
+00:01:23.300 --> 00:01:26.225
+también tendremos una sección
+sección sobre el alcance.
+
+40
+00:01:26.225 --> 00:01:29.795
+En la que espero compartir con
+algunos consejos que he aprendido
+
+41
+00:01:29.795 --> 00:01:33.695
+sobre cómo definir proyectos de
+proyectos de aprendizaje automático.
+
+42
+00:01:33.695 --> 00:01:36.875
+A lo largo de este curso, usted
+también aprenderás sobre MLOps,
+
+43
+00:01:36.875 --> 00:01:39.110
+u operaciones de aprendizaje automático.
+
+44
+00:01:39.110 --> 00:01:40.865
+Que es una disciplina emergente
+
+45
+00:01:40.865 --> 00:01:43.070
+que comprende un conjunto de herramientas y
+
+
+46
+00:01:43.070 --> 00:01:45.170
+principios para apoyar el progreso
+
+47
+00:01:45.170 --> 00:01:47.615
+a través del ciclo de vida del proyecto
+ciclo de vida del proyecto,
+
+48
+00:01:47.615 --> 00:01:50.705
+pero especialmente estos tres pasos.
+
+49
+00:01:50.705 --> 00:01:53.885
+Por ejemplo, en Landing
+AI, donde soy director general,
+
+50
+00:01:53.885 --> 00:01:55.970
+solíamos hacer muchos de
+estos pasos manualmente,
+
+51
+00:01:55.970 --> 00:01:57.725
+lo cual está bien, pero es lento.
+
+52
+00:01:57.725 --> 00:02:00.290
+Pero después de construir
+una herramienta MLOps llamada
+
+53
+00:02:00.290 --> 00:02:02.855
+LandingLens para aplicaciones de
+aplicaciones de visión por ordenador,
+
+54
+00:02:02.855 --> 00:02:04.895
+todos estos pasos
+se hicieron mucho más rápidos.
+
+55
+00:02:04.895 --> 00:02:07.190
+La idea clave en MLOps es
+
+56
+00:02:07.190 --> 00:02:10.235
+que las formas sistemáticas de
+pensar en el alcance, en los datos,
+
+57
+00:02:10.235 --> 00:02:12.560
+modelado, y
+despliegue, y también
+
+58
+00:02:12.560 --> 00:02:16.210
+herramientas de software para apoyar
+las mejores prácticas.
+
+59
+00:02:16.210 --> 00:02:18.260
+Eso es todo. En este curso,
+
+60
+00:02:18.260 --> 00:02:20.000
+vamos a empezar
+por el objetivo final,
+
+61
+00:02:20.000 --> 00:02:23.855
+empezar desde el despliegue, y
+luego trabajaremos hacia atrás.
+
+62
+00:02:23.855 --> 00:02:25.455
+Como ya sabes,
+
+63
+00:02:25.455 --> 00:02:28.940
+ser capaz de desplegar el sistema
+es uno de los más importantes,
+
+64
+00:02:28.940 --> 00:02:31.460
+y valiosas habilidades en
+Machine Learning hoy en día.
+
+65
+00:02:31.460 --> 00:02:35.195
+Pasemos al siguiente vídeo
+donde nos sumergiremos en profundidad en
+
+66
+00:02:35.195 --> 00:02:37.880
+las ideas más importantes
+
+67
+00:02:37.880 --> 00:02:40.655
+necesarias para desplegar sistemas de
+sistemas de aprendizaje automático.
+
+68
+00:02:40.655 --> 00:02:43.260
+Nos vemos en el próximo vídeo.

@@ -1,0 +1,417 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.620
+Cuando estoy construyendo una máquina
+
+2
+00:00:01.620 --> 00:00:03.645
+sistema de aprendizaje, he encontrado que
+
+3
+00:00:03.645 --> 00:00:06.090
+pensando en el
+proyecto de aprendizaje automático
+
+4
+00:00:06.090 --> 00:00:07.770
+ciclo de vida es
+
+5
+00:00:07.770 --> 00:00:09.915
+una forma eficaz
+de planificar
+
+6
+00:00:09.915 --> 00:00:12.825
+todos los pasos que
+necesito trabajar.
+
+7
+00:00:12.825 --> 00:00:15.435
+Cuando estás trabajando en
+sistema de aprendizaje automático,
+
+8
+00:00:15.435 --> 00:00:17.970
+Creo que también encontrarás
+que este marco permite
+
+9
+00:00:17.970 --> 00:00:20.460
+planificar todas las
+cosas importantes que
+
+10
+00:00:20.460 --> 00:00:22.950
+necesitas hacer para
+conseguir que el sistema
+
+11
+00:00:22.950 --> 00:00:25.965
+funcione y también para
+minimizar las sorpresas.
+
+12
+00:00:25.965 --> 00:00:28.140
+Vamos a sumergirnos. Estos son
+
+13
+00:00:28.140 --> 00:00:30.795
+los principales pasos de un
+proyecto de aprendizaje automático.
+
+14
+00:00:30.795 --> 00:00:33.420
+El primero es el alcance,
+en el que tienes
+
+15
+00:00:33.420 --> 00:00:36.310
+definir el proyecto o
+decidir en qué se va a trabajar.
+
+16
+00:00:36.310 --> 00:00:39.050
+¿Qué es exactamente lo que quieres
+aplicar el aprendizaje automático,
+
+17
+00:00:39.050 --> 00:00:42.930
+y qué es X y qué es Y.
+
+18
+00:00:42.930 --> 00:00:45.980
+Después de haber elegido el proyecto,
+
+19
+00:00:45.980 --> 00:00:49.220
+hay que recoger los datos o
+
+20
+00:00:49.220 --> 00:00:52.885
+adquirir los datos que
+necesitas para tu algoritmo.
+
+21
+00:00:52.885 --> 00:00:55.490
+Esto incluye la definición de los datos
+
+22
+00:00:55.490 --> 00:00:57.214
+y establecer una línea de base,
+
+23
+00:00:57.214 --> 00:01:00.605
+y luego también etiquetar
+y organizar los datos.
+
+24
+00:01:00.605 --> 00:01:02.240
+Hay algunas buenas prácticas para
+
+25
+00:01:02.240 --> 00:01:03.710
+que no son intuitivas
+
+26
+00:01:03.710 --> 00:01:07.205
+que aprenderás más sobre
+más adelante en esta semana.
+
+27
+00:01:07.205 --> 00:01:08.945
+Después de tener los datos,
+
+28
+00:01:08.945 --> 00:01:11.540
+tienes que entrenar el modelo.
+
+29
+00:01:11.540 --> 00:01:12.875
+Durante la fase del modelo,
+
+30
+00:01:12.875 --> 00:01:14.420
+hay que seleccionar y entrenar
+
+31
+00:01:14.420 --> 00:01:18.420
+el modelo y también
+realizar el análisis de errores.
+
+32
+00:01:18.420 --> 00:01:20.540
+Puede que sepas que el
+Aprendizaje automático
+
+33
+00:01:20.540 --> 00:01:23.135
+es a menudo una tarea altamente iterativa.
+
+34
+00:01:23.135 --> 00:01:25.235
+Durante el proceso
+de análisis de errores,
+
+35
+00:01:25.235 --> 00:01:27.650
+se puede volver atrás y
+actualizar el modelo,
+
+36
+00:01:27.650 --> 00:01:30.185
+o también puedes volver
+a la fase anterior
+
+37
+00:01:30.185 --> 00:01:33.205
+y decidir que necesitas
+recoger más datos.
+
+38
+00:01:33.205 --> 00:01:35.495
+Como parte del análisis de errores
+
+39
+00:01:35.495 --> 00:01:37.624
+antes de llevar un sistema
+a los despliegues,
+
+40
+00:01:37.624 --> 00:01:41.330
+A menudo también llevaré a cabo
+una comprobación final,
+
+41
+00:01:41.330 --> 00:01:42.830
+tal vez una auditoría final,
+
+42
+00:01:42.830 --> 00:01:45.830
+para asegurarse de que el rendimiento del sistema
+rendimiento es lo suficientemente bueno
+
+43
+00:01:45.830 --> 00:01:49.675
+y que es lo suficientemente
+fiable para la aplicación.
+
+44
+00:01:49.675 --> 00:01:51.890
+A veces, un ingeniero
+piensa que cuando
+
+45
+00:01:51.890 --> 00:01:54.220
+desplegar un sistema, ya está hecho.
+
+46
+00:01:54.220 --> 00:01:55.985
+Ahora le digo a la mayoría de la gente,
+
+47
+00:01:55.985 --> 00:01:58.145
+cuando se despliega un sistema
+por primera vez,
+
+48
+00:01:58.145 --> 00:02:00.830
+tal vez estés a mitad de camino
+de la línea de meta,
+
+49
+00:02:00.830 --> 00:02:03.140
+porque a menudo es sólo después de que
+
+50
+00:02:03.140 --> 00:02:05.840
+activar el tráfico en directo
+que entonces
+
+51
+00:02:05.840 --> 00:02:08.300
+aprender la segunda mitad de
+las lecciones importantes
+
+52
+00:02:08.300 --> 00:02:11.720
+necesario para que el
+sistema funcione bien.
+
+53
+00:02:11.720 --> 00:02:13.685
+Para llevar a cabo el paso de despliegue,
+
+54
+00:02:13.685 --> 00:02:15.880
+tienes que desplegar
+en producción,
+
+55
+00:02:15.880 --> 00:02:18.655
+escribir el software necesario para
+poner en producción,
+
+56
+00:02:18.655 --> 00:02:20.975
+Después, supervisar también el sistema,
+
+57
+00:02:20.975 --> 00:02:23.255
+y seguir los datos que
+siguen entrando,
+
+58
+00:02:23.255 --> 00:02:25.775
+y mantener el sistema.
+
+59
+00:02:25.775 --> 00:02:28.805
+Por ejemplo, si la distribución de datos
+cambia la distribución de los datos,
+
+60
+00:02:28.805 --> 00:02:32.090
+puede ser necesario actualizar el modelo.
+
+61
+00:02:32.090 --> 00:02:34.805
+Después del despliegue inicial,
+
+62
+00:02:34.805 --> 00:02:38.120
+el mantenimiento a menudo
+significa volver a
+
+63
+00:02:38.120 --> 00:02:41.420
+realizar más análisis de errores
+y tal vez volver a entrenar el modelo,
+
+64
+00:02:41.420 --> 00:02:45.200
+o puede significar tomar
+los datos que se obtienen.
+
+65
+00:02:45.200 --> 00:02:46.580
+Ahora que el sistema está desplegado
+
+66
+00:02:46.580 --> 00:02:48.290
+y está funcionando con datos en vivo,
+
+67
+00:02:48.290 --> 00:02:50.090
+y alimentando eso de nuevo en
+
+68
+00:02:50.090 --> 00:02:54.935
+tu conjunto de datos para luego
+actualizar potencialmente tus datos,
+
+69
+00:02:54.935 --> 00:02:57.980
+volver a entrenar el modelo, y
+hasta que puedas poner
+
+70
+00:02:57.980 --> 00:03:01.375
+un modelo actualizado en el despliegue.
+
+71
+00:03:01.375 --> 00:03:03.980
+He encontrado este marco útil para
+
+72
+00:03:03.980 --> 00:03:07.055
+una gran variedad de proyectos de
+proyectos de aprendizaje automático.
+
+73
+00:03:07.055 --> 00:03:09.755
+Desde la visión por ordenador
+hasta datos de audio,
+
+74
+00:03:09.755 --> 00:03:13.515
+a datos estructurales, a
+muchas otras aplicaciones.
+
+75
+00:03:13.515 --> 00:03:15.260
+Siéntase libre de tomar una captura de pantalla de
+
+76
+00:03:15.260 --> 00:03:17.150
+esta imagen y utilizarla con
+
+77
+00:03:17.150 --> 00:03:19.160
+tus amigos o por ti mismo para
+
+78
+00:03:19.160 --> 00:03:21.910
+planificar tu proyecto de
+de Aprendizaje Automático.
+
+79
+00:03:21.910 --> 00:03:23.755
+Gracias también al aprendizaje de las IAs,
+
+80
+00:03:23.755 --> 00:03:25.930
+Steven Layett y
+Daniel Pipryata,
+
+81
+00:03:25.930 --> 00:03:28.690
+que fueron fundamentales para
+desarrollar este diagrama.
+
+82
+00:03:28.690 --> 00:03:31.685
+En este vídeo, hemos
+repasamos rápidamente
+
+83
+00:03:31.685 --> 00:03:35.120
+el ciclo de vida del proyecto de
+del proyecto de aprendizaje automático en orden
+
+84
+00:03:35.120 --> 00:03:36.770
+profundizar en nuestra comprensión de
+
+85
+00:03:36.770 --> 00:03:38.750
+este ciclo de vida del proyecto o ser
+
+86
+00:03:38.750 --> 00:03:41.900
+útil para recorrer
+un ejemplo concreto.
+
+87
+00:03:41.900 --> 00:03:43.505
+En el siguiente vídeo,
+
+88
+00:03:43.505 --> 00:03:46.070
+vamos a repasar lo que
+estos diferentes pasos de
+
+89
+00:03:46.070 --> 00:03:48.890
+proyecto de aprendizaje automático
+de aprendizaje automático en
+
+90
+00:03:48.890 --> 00:03:52.190
+el contexto de una aplicación de
+aplicación de reconocimiento del habla.
+
+91
+00:03:52.190 --> 00:03:54.720
+Pasemos al siguiente vídeo.
